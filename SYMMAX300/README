@@ -1,0 +1,27 @@
+
+SYMMAX300 is a dataset of human annotations for symmetry axes of elongated structures for the complete Berkeley natural images dataset for segmentation (BSDS300). The ground-truth mat files contained in this directory are divided into the training set (200 images) and the testing set (100 images). Each mat file contains gt, a 2D binary matrix with values 1 in the pixels where we have a symmetry axis and 0 anywhere else. We also include an older version of the ground-truth dataset created following the procedure described in the paper, based on the BSDS300 segmentations. This lies under the folder "auto".
+
+The names of the mat files are in the form gt_iid.mat, where iid is a unique integer id for every image in the BSDS300. If you already know the id for a specific image and the ground-truth directory is contained in your working directory, you can load the corresponding ground-truth simply by using:
+
+load('gr_iid.mat')
+
+Example of using the ground-truth in a for loop: (function imgList is included in the Berkeley segmentation benchmarking code) 
+
+imagelist = imgList('train');
+for i = 1:numel(imagelist)	
+   iid = imagelist(i);
+   load(sprintf('gt_%d',iid))
+   gt = ...	%perform actions using gt
+   ...
+   ...
+   ...
+	
+end
+
+If you want to visualize the ground-truth on the corresponding image, you can use the overlayBinaryImage function included in our symmetry_1.0 distribution:
+
+o = overlayBinaryImage(im,gt);
+figure, imshow(o)
+
+Contact info:
+stavros.tsogkas[at]ecp.fr
