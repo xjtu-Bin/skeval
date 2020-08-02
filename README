@@ -3,9 +3,11 @@ Evaluate Skeleton Detection Results by Python
 
 Run python setup.py build_ext --inplace 
 
+Change date path in skeval_demo.py 
+
 Run python skeval_demo.py  to perform evaluation.
 
 Run python plot.py to plot Precision-Recall graph
 
-If you find any question,you can contact me by E-mile.
+If you find any question,you can contact me by e-mile.
 csliubin@stu.xjtu.edu.cn
